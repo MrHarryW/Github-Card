@@ -1,0 +1,146 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #121212;
+  color: #e0e0e0;
+  padding-bottom: 100px;
+}
+
+header {
+  background-color: #1e1e1e;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+button {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #007acc;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+.card {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.card a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top: 4px solid #007acc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1e1e1e;
+  color: #888;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.5);
+}
+
+:root {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-color: #1e1e1e;
+  --button-bg: #007acc;
+  --button-hover: #005fa3;
+}
+
+body.light {
+  --bg-color: #f4f4f4;
+  --text-color: #222;
+  --card-color: #fff;
+  --button-bg: #007acc;
+  --button-hover: #005fa3;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.card {
+  background-color: var(--card-color);
+}
+
+input, button {
+  background-color: var(--card-color);
+  color: var(--text-color);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  color: var(--text-color);
+  cursor: pointer;
+}

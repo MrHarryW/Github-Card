@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Stats Card</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1><i class="fab fa-github"></i> GitHub Profile Stats</h1>
+    <button id="theme-toggle" class="theme-toggle" style="color: white;">
+      <i class="fas fa-moon"></i> Toggle Theme
+    </button>    
+  </header>
+
+  <main class="container">
+    <div class="input-section">
+      <input type="text" id="username" placeholder="Enter GitHub username" />
+      <button onclick="getGitHubStats()" style="background-color:#007acc;"><i class="fas fa-download" ></i> Fetch Stats</button>
+    </div>
+    <div id="spinner" class="spinner hidden"></div>
+    <div id="result" class="card"></div>
+  </main>
+
+  </br>
+  </br>
+  </br>
+  </br>
+
+  <footer class="footer">
+    <p>Created by MrHarryW</p>
+    <div class="social-icons">
+      <a href="https://github.com/MrHarryW" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com/MrHarryW" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.mrharryw.dev" target="_blank"><i class="fas fa-globe"></i></a>
+      <a href="https://www.reddit.com/user/MrHarryW" target="_blank"><i class="fab fa-reddit"></i></a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
