@@ -2,6 +2,21 @@ document.getElementById("theme-toggle").addEventListener("click", () => {
   document.body.classList.toggle("light");
 });
 
+async function downloadImagePNG() {
+  const node = document.getElementById("result");
+
+  domtoimage.toPng(node)
+    .then((dataUrl) => {
+      const link = document.createElement("a");
+      link.download = "github-stats.png";
+      link.href = dataUrl;
+      link.click();
+    })
+    .catch((error) => {
+      console.error("Error downloading image:", error);
+    });
+}
+
 
 async function getGitHubStats() {
   const username = document.getElementById("username").value.trim();
@@ -41,6 +56,7 @@ async function getGitHubStats() {
 
     spinner.classList.add("hidden"); // Hide spinner after success
     result.innerHTML = `
+      <img src="${user.avatar_url}" style="border-radius: 50%; height: 50px; width: 50px;" alt="${username}'s avatar" class="avatar" />
       <h2>@<a href="https://github.com/${username}" target="_blank">${username}</a></h2>
       <p><strong>Bio:</strong> ${user.bio || "N/A"}</p>
       <p><strong>Total Public Repos:</strong> ${repos.length}</p>
@@ -55,7 +71,10 @@ async function getGitHubStats() {
       <p><strong>Company:</strong> ${user.company || "N/A"}</p>
       <p><strong>Website:</strong> ${user.blog ? `<a href="${user.blog}" target="_blank">${user.blog}</a>` : "N/A"}</p>
       <p><strong>Twitter:</strong> ${user.twitter_username ? `<a href="https://twitter.com/${user.twitter_username}" target="_blank">@${user.twitter_username}</a>` : "N/A"}</p>
-`; // Formatted HTML
+      </br>
+      </br>
+      <button id="download-image" onclick="downloadImagePNG()">Download Card as Image</button>
+`;
   } catch (err) {
     spinner.classList.add("hidden"); // Hide spinner on error
     result.innerHTML = `Error: ${err.message}`;
